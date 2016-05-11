@@ -1,5 +1,5 @@
-package com.chaeeun.algorithm;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.Stack;
 
@@ -7,15 +7,19 @@ public class Main {
     
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
-		Stack<String> stack = new Stack<String>();;
+		ArrayList<String> list = new ArrayList<String>();
+		ArrayList<String> answer = new ArrayList<String>();
+		Stack<String> stack = new Stack<String>();
 		int num = scanner.nextInt();
 		char[] array = new char[100];
 		
 		for(int i=0; i<num ; i++) {
-		
 			String value = scanner.nextLine();
-			array = value.toCharArray();
-			
+			list.add(value);
+		}
+		for(int i=0; i<list.size() ; i++ ) {
+			array = (list.get(i)).toCharArray();
+
 			for(int j=0; j<array.length; j++) {
 				if(array[j] == '('){
 					stack.push("(");
@@ -26,12 +30,19 @@ public class Main {
 			}
 			
 			if(stack.empty()){
-				System.out.println("YES");
+				answer.add("YES");
 			}else {
-				System.out.println("NO");
+				answer.add("NO");
 			}
-			stack.clear();
+			
 		}
+		for(int i=0; i<answer.size(); i++) {
+
+			System.out.println(answer.get(i));
+		}
+
 	}
+							
+	
 }
 
