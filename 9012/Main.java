@@ -1,46 +1,37 @@
+package com.chaeeun.algorithm;
+
 import java.util.Scanner;
+import java.util.Stack;
 
 public class Main {
-	static int testCase;
-	static String test;
-	static int result[];
-	
+    
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
-		testCase = Integer.parseInt(scanner.nextLine());
-		result = new int[testCase];
+		Stack<String> stack = new Stack<String>();;
+		int num = scanner.nextInt();
+		char[] array = new char[100];
 		
-		for(int i=0; i<testCase; i++) {
-			test = scanner.nextLine().trim();
-			result[i] = calPS(test);
-		}
-		for(int i=0; i<testCase; i++) {
-			if(result[i] != 0) {
-				System.out.println("NO");	
-			}else {
+		for(int i=0; i<num ; i++) {
+		
+			String value = scanner.nextLine();
+			array = value.toCharArray();
+			
+			for(int j=0; j<array.length; j++) {
+				if(array[j] == '('){
+					stack.push("(");
+					
+				}else if(array[j] == ')') {
+					stack.pop();
+				}
+			}
+			
+			if(stack.empty()){
 				System.out.println("YES");
+			}else {
+				System.out.println("NO");
 			}
+			stack.clear();
 		}
-		
 	}
-	public static int calPS(String test) {
-		int result = 0;
-		char[] charArray = test.toCharArray();
-		for(int i=0; i<charArray.length; i++){
-			if(result < 0){
-				return -1;
-				
-			}
-			if(charArray[i] == '('){
-				result = result + 1;
-				continue;
-			}
-			if(charArray[i] == ')'){
-				result = result - 1;
-				continue;
-			}
-		}
-		return result;
-	}
-
 }
+
