@@ -1,6 +1,4 @@
-	package stack;
-	
-	import java.util.Scanner;
+    import java.util.Scanner;
 	
 	public class Main {
 		
@@ -8,24 +6,22 @@
 			Scanner scanner = new Scanner(System.in);
 			Stack stack = new Stack();
 			int commandNumber = scanner.nextInt();
-			String[] command;
-			String c;
+			String command;
 			for(int i=0; i<commandNumber; i++) {
 				
-				c = scanner.nextLine();
-				command = c.split(" ");
-				
-				if(command[0].equals("pop")) {
+				command = scanner.next();
+                
+				if(command.equals("pop")) {
 					stack.pop();
 					
-				}else if (command[0].equals("push")) {
-					int item = Integer.parseInt(command[1]);
+				}else if (command.equals("push")) {
+					int item = scanner.nextInt();
 					stack.push(item);
-				}else if(command[0].equals("size")) {
+				}else if(command.equals("size")) {
 					stack.size();
-				}else if(command[0].equals("empty")){
+				}else if(command.equals("empty")){
 					stack.empty();
-				}else if(command[0].equals("top")) {
+				}else if(command.equals("top")) {
 					stack.top();
 				}
 			}
