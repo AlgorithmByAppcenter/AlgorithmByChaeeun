@@ -36,7 +36,7 @@
 			private StackNode top;
 			private int size = 0;
 			
-			class StackNode{
+			private class StackNode{
 				int data;
 				private StackNode link;
 			}
