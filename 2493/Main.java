@@ -1,34 +1,45 @@
-package top;
-
 import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Scanner;
+import java.util.Set;
 import java.util.Stack;
 
 public class Main {
-
+	
 	public static void main(String[] args) {
+
 		Scanner scanner = new Scanner(System.in);
-		Stack<HashMap<Integer, Integer>> stack = new Stack<HashMap<Integer, Integer>>();
+		Stack<int[]> stack = new Stack<int[]>();
+		int number = scanner.nextInt();
+		int height;
 		
-		int commandNumber = scanner.nextInt();
-		String buildingNumber = scanner.nextLine();
-		String[] buildings = buildingNumber.split(" ");
-			for(int i=0; i<commandNumber; i++) {
-				int building= Integer.parseInt(buildings[i]);
-				HashMap map = new HashMap<Integer ,Integer>();
-				map.put(i++, building);
-				stack.push(map);
-		}
+		
+		for(int i=1; i<=number; i++) {
+			height = scanner.nextInt(); 
 			
 			while(!stack.isEmpty()) {
-				HashMap map2 = stack.peek();
-				if()
+				
+				if(stack.peek()[1]> height) {
+					System.out.print(stack.peek()[0]+" ");
+					break;
+				}
+				stack.pop();
 			}
-		
-			if(stack.isEmpty()) {
+			
+			if ( stack.isEmpty()) {
 				System.out.print("0 ");
-			}	
-
+			}
+			
+			stack.push(makePair(i, height));
+			
+		}
+		
+	}
 	
+	public static int[] makePair(int i, int height) {
+		int[] pair = {i,height};
+		return pair;
+	}
 	
 }
