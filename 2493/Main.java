@@ -17,22 +17,20 @@ public class Main {
 		
 		for(int i=1; i<=number; i++) {
 			height = scanner.nextInt(); 
-			
+
 			while(!stack.isEmpty()) {
-				
 				if(stack.peek()[1]> height) {
 					System.out.print(stack.peek()[0]+" ");
 					break;
 				}
 				stack.pop();
 			}
-			
+		
 			if ( stack.isEmpty()) {
 				System.out.print("0 ");
 			}
 			
 			stack.push(makePair(i, height));
-			
 		}
 		
 	}
